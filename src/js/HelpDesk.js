@@ -49,7 +49,7 @@ export default class HelpDesk {
 
     //Функция отправки формы на сервер
     let submitForm = (formData) => {
-      fetch("http://localhost:7070/?method=createTicket", { // файл-обработчик
+      fetch("https://working-http-server.onrender.com/?method=createTicket", { // файл-обработчик
           method: "POST",
           body: JSON.stringify(formData)
       })
@@ -92,7 +92,7 @@ export default class HelpDesk {
             this.removeTicketModal.remove();// удаляем мод окно
           } else if(evt.classList.contains('del')) {// если "Ок"
             //отправляем ID  на сервер
-            fetch(`http://localhost:7070/?method=deleteById&id=${evtIdvalue}`, {
+            fetch(`https://working-http-server.onrender.com/?method=deleteById&id=${evtIdvalue}`, {
             //method: "GET",
             //body: JSON.stringify(evtIdvalue)
             })
@@ -134,7 +134,7 @@ export default class HelpDesk {
           } else if(evt.classList.contains('edit')) {// если "Ок"
               //функция отправки формы изменения тикера на сервер
               let submitForm = (formData) => { 
-                fetch(`http://localhost:7070/?method=updateById&id=${evtIdpencil}`, { // файл-обработчик
+                fetch(`https://working-http-server.onrender.com/?method=updateById&id=${evtIdpencil}`, { // файл-обработчик
                     method: "POST",
                     body: JSON.stringify(formData)
                 })
@@ -184,7 +184,7 @@ export default class HelpDesk {
             //document.querySelector('.ticket-description').remove();             
           //} 
           //делаем запрос на сервер         
-          fetch(`http://localhost:7070/?method=ticketById&id=${evtIdBody}`)
+          fetch(`https://working-http-server.onrender.com/?method=ticketById&id=${evtIdBody}`)
             .then((response) => response.json())
             .then((data) => { 
               let resText = data.description;//сохраняем текст из ответа сервера
@@ -221,7 +221,7 @@ export default class HelpDesk {
           bulevo.status = true;
         } 
 
-        fetch(`http://localhost:7070/?method=updateById&id=${idTicket}`, { // файл-обработчик
+        fetch(`https://working-http-server.onrender.com/?method=updateById&id=${idTicket}`, { // файл-обработчик
                     method: "POST",
                     body: JSON.stringify(bulevo)
                 })    

@@ -16,7 +16,7 @@ export default class HelpDesk {
 
   //метод заправшивает и загружает на страницу тикеры с сервера
   init() {  
-    fetch('http://localhost:7070/?method=allTickets')
+    fetch('http://localhost:10000/?method=allTickets')
     .then((response) => response.json())
       .then((data) => {                          
        let responsedTickets = data;
